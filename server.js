@@ -16,14 +16,14 @@ app.get('/request-item', (req, res)=>{
         {
             to: [
             {
-                email: 'ashsall115@gmail.com'
+                email: 'ashsal2001@gmail.com'
             }
             ],
             subject: 'Sending with SendGrid is Fun'
         }
         ],
         from: {
-        email: 'ashsal2001@gmail.com'
+        email: 'ashsall115@gmail.com'
         },
         content: [
         {
