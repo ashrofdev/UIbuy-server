@@ -6,7 +6,7 @@ const app = express()
 
 app.use(cors())
 app.use(bodyParser())
-app.get('/', (req, res)=>{
+app.get('/s', (req, res)=>{
     var sg = require('sendgrid')(process.config.API_KEY);
     var request = sg.emptyRequest({
     method: 'POST',
