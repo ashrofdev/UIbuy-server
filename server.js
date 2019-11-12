@@ -46,5 +46,5 @@ app.get('/', (req, res)=>{
     });
 })
 
-app.listen(process.env.PORT)
+app.listen(3002)
 
