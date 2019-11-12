@@ -7,7 +7,7 @@ const app = express()
 app.use(cors())
 app.use(bodyParser())
 app.get('/', (req, res)=>{
-    var sg = require('sendgrid')(process.env.API_KEY);
+    var sg = require('sendgrid')(process.config.API_KEY);
     var request = sg.emptyRequest({
     method: 'POST',
     path: '/v3/mail/send',
@@ -48,5 +48,5 @@ app.get('/', (req, res)=>{
     });
 })
 
-app.listen(process.env.PORT|| 3002)
+app.listen(process.env.PORT)
 
