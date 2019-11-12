@@ -39,7 +39,7 @@ app.get('/request-item', (req, res)=>{
         console.log(response.body);
         console.log(response.headers);
     }).then((e)=>{
-        res.send('cool')
+        res.json('cool')
     })
     .catch(function (error) {
         // error is an instance of SendGridError
