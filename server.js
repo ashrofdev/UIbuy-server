@@ -1,10 +1,12 @@
 const express = require('express')
 const cors = require('cors')
+const bodyParser = require('body-parser')
 const app = express()
 
 
 app.use(cors())
-app.get('/', (req, res)=>{
+app.use(bodyParser())
+app.get('/request-item', (req, res)=>{
     var sg = require('sendgrid')('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');
     var request = sg.emptyRequest({
     method: 'POST',
@@ -14,14 +16,14 @@ app.get('/', (req, res)=>{
         {
             to: [
             {
-                email: 'ashsal2001@gmail.com'
+                email: 'ashsall115@gmail.com'
             }
             ],
             subject: 'Sending with SendGrid is Fun'
         }
         ],
         from: {
-        email: 'ashsall115@gmail.com'
+        email: 'ashsal2001@gmail.com'
         },
         content: [
         {
