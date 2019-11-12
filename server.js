@@ -6,7 +6,7 @@ const app = express()
 
 app.use(cors())
 app.use(bodyParser())
-app.get('/request-item', (req, res)=>{
+app.get('/', (req, res)=>{
     var sg = require('sendgrid')(process.env.API_KEY);
     var request = sg.emptyRequest({
     method: 'POST',
@@ -48,5 +48,5 @@ app.get('/request-item', (req, res)=>{
     });
 })
 
-app.listen(process.env.PORT)
+app.listen(process.env.PORT|| 3002)
 
