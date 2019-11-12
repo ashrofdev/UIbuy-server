@@ -7,7 +7,7 @@ const app = express()
 app.use(cors())
 app.use(bodyParser())
 app.get('/request-item', (req, res)=>{
-    var sg = require('sendgrid')('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');
+    var sg = require('sendgrid')(process.env.API_KEY);
     var request = sg.emptyRequest({
     method: 'POST',
     path: '/v3/mail/send',
