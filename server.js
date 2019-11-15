@@ -1,50 +1,36 @@
 const express = require('express')
-const cors = require('cors')
 const app = express()
+const nodemailer = require('nodemailer');
 
 
-app.use(cors())
 app.get('/', (req, res)=>{
-    var sg = require('sendgrid')('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');
-    var request = sg.emptyRequest({
-    method: 'POST',
-    path: '/v3/mail/send',
-    body: {
-        personalizations: [
-        {
-            to: [
-            {
-                email: 'ashsal2001@gmail.com'
+    async function main() {
+        let transporter = nodemailer.createTransport({
+            host: "smtp.gmail.com",
+            port: 465,
+            
+            auth: {
+              user: "ashsal2001@gmail.com",
+              pass: "salmanashrafatmagul"
+            },
+            tls: {
+              
+              rejectUnauthorized: false
             }
-            ],
-            subject: 'Sending with SendGrid is Fun'
-        }
-        ],
-        from: {
-        email: 'ashsall115@gmail.com'
-        },
-        content: [
-        {
-            type: 'text/plain',
-            value: 'A client is requesting your product'
-        }
-        ]
+          });
+    
+        
+        let info = await transporter.sendMail({
+            from: 'UI buy 🛒" <foo@example.com>', // sender address
+            to: 'ashsall115@gmai.com, baz@example.com', // list of receivers
+            subject: 'PRODUCT REQUEST ✔', // Subject line
+            text: 'Hello world?', // plain text body
+            html: '<b>A client requested your product</b> <p>Wow, finally youve got a customer</p>' // html body
+        });
+    
+        console.log('Message sent: %s', info.messageId);
+        console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
     }
-    })
-    sg.API(request)
-    .then(function (response) {
-        console.log(response.statusCode);
-        console.log(response.body);
-        console.log(response.headers);
-    }).then((e)=>{
-        res.send('cool')
-    })
-    .catch(function (error) {
-        // error is an instance of SendGridError
-        // The full response is attached to error.response
-        console.log(error.response.statusCode);
-    });
+    
+    main().then(()=>res.json('sent')).catch((err)=>res.json(err));
 })
-
-app.listen(3002)
-
