@@ -36,4 +36,4 @@ app.get('/', (req, res)=>{
     main().then(()=>res.json('sent')).catch((err)=>res.json(err));
 })
 
-app.length(process.env.PORT)
+app.listen(process.env.PORT)
