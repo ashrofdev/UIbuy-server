@@ -1,9 +1,7 @@
 const express = require('express')
 const nodemailer = require('nodemailer');
-const cors = require('cors')
 const app = express()
 
-app.use(cors())
 app.get('/', (req, res)=>{
     async function main() {
         let transporter = nodemailer.createTransport({
