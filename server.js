@@ -4,7 +4,8 @@ const cors = require('cors')
 const app = express()
 
 app.use(cors())
-app.get('/', (req, res)=>{
+
+app.get('/r', (req, res)=>{
     async function main() {
         let transporter = nodemailer.createTransport({
             host: "smtp.gmail.com",
@@ -22,8 +23,8 @@ app.get('/', (req, res)=>{
     
         
         let info = await transporter.sendMail({
-            from: 'UI buy 🛒" <foo@example.com>', // sender address
-            to: 'ashsall115@gmai.com, baz@example.com', // list of receivers
+            from: 'ashsal2001@gmail.com', // sender address
+            to: 'ashsall115@gmail.com', // list of receivers
             subject: 'PRODUCT REQUEST ✔', // Subject line
             text: 'Hello world?', // plain text body
             html: '<b>A client requested your product</b> <p>Wow, finally youve got a customer</p>' // html body
@@ -33,7 +34,7 @@ app.get('/', (req, res)=>{
         console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
     }
     
-    main().then(()=>res.json('sent')).catch((err)=>res.json(err));
+    main().then(()=>res.json('sent')).catch((err)=>console.log(err));
 })
 
 app.listen(process.env.PORT)
