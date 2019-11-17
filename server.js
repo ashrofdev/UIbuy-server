@@ -3,7 +3,7 @@ const nodemailer = require('nodemailer');
 const cors = require('cors')
 const app = express()
 
-app.use(cors())
+app.use(cors)
 
 app.get('/r', (req, res)=>{
     async function main() {
@@ -37,4 +37,4 @@ app.get('/r', (req, res)=>{
     main().then(()=>res.json('sent')).catch((err)=>console.log(err));
 })
 
-app.listen(process.env.PORT)
+app.listen(process.env.PORT || 3001)
