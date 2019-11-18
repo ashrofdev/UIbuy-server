@@ -1,10 +1,10 @@
 {
-  "name": "fpt-server",
+  "name": "UIbuy",
   "version": "1.0.0",
-  "description": "server for the freedom project tribe app",
+  "description": "server for the UIbuy app",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon server.js"
+    "start": "node server.js"
   },
   "author": "Ashraf",
   "license": "ISC",
