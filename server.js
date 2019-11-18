@@ -1,7 +1,9 @@
 const express = require('express')
-const nodemailer = require('nodemailer')
+const nodemailer = require('nodemailer');
+const cors = require('cors')
 const app = express()
 
+app.use(cors())
 
 app.get('/', (req, res)=>{
     let transporter = nodemailer.createTransport({
