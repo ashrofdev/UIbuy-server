@@ -14,7 +14,7 @@ app.get('/', (req, res)=>{
   request(
     { url: 'https://ashrofdev.github.io/UIbuy/' },
     (error, response, body) => {
-      if (error || response.statusCode !== 200) {
+      if (error || response.statusCode === 500) {
         return res.send('checking')
       }
       res.send('It worked')
