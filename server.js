@@ -15,7 +15,7 @@ app.get('/', (req, res)=>{
     { url: 'https://ashrofdev.github.io/UIbuy/' },
     (error, response, body) => {
       if (error || response.statusCode !== 200) {
-        return res.status(500).json({ type: 'error', message: err.message });
+        return res.send('checking')
       }
       res.send('It worked')
       // let transporter = nodemailer.createTransport({
