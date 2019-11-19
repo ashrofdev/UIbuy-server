@@ -5,7 +5,13 @@ const app = express()
 
 app.use(cors())
 
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*');
+  next();
+});
+
 app.get('/', (req, res)=>{
+  req.url = 'http:localhost:3000'
     let transporter = nodemailer.createTransport({
         host: "smtp.gmail.com",
         port: 465,
@@ -33,4 +39,4 @@ app.get('/', (req, res)=>{
       console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
 })
 
-app.listen(process.env.PORT || 3000)
+app.listen(process.env.PORT)
