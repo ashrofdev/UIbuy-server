@@ -11,8 +11,13 @@ app.use((req, res, next) => {
 });
 
 app.get('/', (req, res)=>{
-  req.url = 'https://ashrofdev.github.io/UIbuy/'
-    let transporter = nodemailer.createTransport({
+  request(
+    { url: 'https://ashrofdev.github.io/UIbuy/' },
+    (error, response, body) => {
+      if (error || response.statusCode !== 200) {
+        return res.status(500).json({ type: 'error', message: err.message });
+      }
+      let transporter = nodemailer.createTransport({
         host: "smtp.gmail.com",
         port: 465,
         
@@ -37,6 +42,11 @@ app.get('/', (req, res)=>{
     
       console.log('Message sent: %s', info.messageId,);
       console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
+      
+    }
+  )
+  req = 'https://ashrofdev.github.io/UIbuy/'
+    
 })
 
 app.listen(process.env.PORT)
