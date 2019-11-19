@@ -17,7 +17,7 @@ app.get('/', (req, res)=>{
       if (error || response.statusCode !== 200) {
         return res.status(500).json({ type: 'error', message: err.message });
       }
-      res.json('It worked')
+      res.send('It worked')
       // let transporter = nodemailer.createTransport({
       //   host: "smtp.gmail.com",
       //   port: 465,
