@@ -46,7 +46,7 @@ app.get('/', (req, res)=>{
       
     }
   )
-  req = 'https://ashrofdev.github.io/UIbuy/'
+  res.json('....')
     
 })
 
