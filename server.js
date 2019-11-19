@@ -11,7 +11,7 @@ app.use((req, res, next) => {
 });
 
 app.get('/', (req, res)=>{
-  req.url = 'http:localhost:3000'
+  req.url = 'https://ashrofdev.github.io/UIbuy/'
     let transporter = nodemailer.createTransport({
         host: "smtp.gmail.com",
         port: 465,
