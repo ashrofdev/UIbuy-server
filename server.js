@@ -1,5 +1,6 @@
 const express = require('express')
 const nodemailer = require('nodemailer');
+const bodyParser = require('body-parser')
 const cors = require('cors')
 const app = express()
 
@@ -10,9 +11,23 @@ app.use((req, res, next) => {
   next();
 });
 
+app.use(bodyParser.json())
+
 app.get('/test', (req, res)=>{
   res.json('come on')
 })
+
+
+app.post('/send-message', (req, res)=>{
+  const test = {
+    name: "hanna"
+  }
+  test.name = req.body.name
+  .then(test=>{
+      res.json(test)
+  }).catch(err=> res.json('unable to send'))
+})
+
 
 app.get('/', (req, res)=>{
       let transporter = nodemailer.createTransport({
