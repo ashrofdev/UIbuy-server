@@ -41,7 +41,7 @@ app.get('/test', (req, res)=>{
       res.json("bbbbbbbbbbb")  
     })
     .catch((e)=>{
-      res.json(e)
+      res.json(e, 'error occured')
     })
     
     
