@@ -11,7 +11,7 @@ app.use((req, res, next) => {
 });
 
 app.get('/', (req, res)=>{
-      res.send('It worked')
+      res.json('It worked')
       // let transporter = nodemailer.createTransport({
       //   host: "smtp.gmail.com",
       //   port: 465,
@@ -43,4 +43,4 @@ app.get('/', (req, res)=>{
     
 })
 
-app.listen(process.env.PORT)
+app.listen(process.env.PORT || 3005)
