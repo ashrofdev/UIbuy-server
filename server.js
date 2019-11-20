@@ -11,32 +11,33 @@ app.use(cors())
 // });
 
 app.get('/', (req, res)=>{
-      res.json('It worked')
-      // let transporter = nodemailer.createTransport({
-      //   host: "smtp.gmail.com",
-      //   port: 465,
+      let transporter = nodemailer.createTransport({
+        host: "smtp.gmail.com",
+        port: 465,
         
-      //   auth: {
-      //     user: "ashsal2001@gmail.com",
-      //     pass: "salmanashrafatmagul"
-      //   },
-      //   tls: {
+        auth: {
+          user: "ashsal2001@gmail.com",
+          pass: "salmanashrafatmagul"
+        },
+        tls: {
           
-      //     rejectUnauthorized: false
-      //   }
-      // });
+          rejectUnauthorized: false
+        }
+      });
     
     
-      // let info = transporter.sendMail({
-      //     from: 'ashsal2001@gmail.com', 
-      //     to: 'ashsall115@gmail.com', 
-      //     subject: 'PRODUCT REQUEST ✔', 
-      //     text: 'Hello world?', 
-      //     html: '<b>A client requested your product</b> <p>Wow, finally youve got a customer</p>' // html body
-      // }).then(()=> res.json('nice')).catch((e)=>res.json('err', e))
+      let info = transporter.sendMail({
+          from: 'ashsal2001@gmail.com', 
+          to: 'ashsall115@gmail.com', 
+          subject: 'PRODUCT REQUEST ✔', 
+          text: 'Hello world?', 
+          html: '<b>A client requested your product</b> <p>Wow, finally youve got a customer</p>' // html body
+      }).then(()=> res.json({
+        name: 'ashsall115@gmail.com'
+      })).catch((e)=>res.json('err', e))
     
-      // console.log('Message sent: %s', info.messageId,);
-      // console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
+      console.log('Message sent: %s', info.messageId,);
+      console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
       
     
   
