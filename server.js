@@ -10,6 +10,10 @@ app.use((req, res, next) => {
   next();
 });
 
+app.get('/test', (req, res)=>{
+  res.json('come on')
+})
+
 app.get('/', (req, res)=>{
       let transporter = nodemailer.createTransport({
         host: "smtp.gmail.com",
