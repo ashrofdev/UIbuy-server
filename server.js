@@ -20,12 +20,9 @@ app.get('/test', (req, res)=>{
 
 app.post('/send-message', (req, res)=>{
   const test = {
-    name: "hanna"
+    name: req.body.name
   }
-  test.name = req.body.name
-  .then(test=>{
       res.json(test)
-  }).catch(err=> res.json('unable to send'))
 })
 
 
