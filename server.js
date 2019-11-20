@@ -2,6 +2,7 @@ const express = require('express')
 const nodemailer = require('nodemailer');
 const bodyParser = require('body-parser')
 const app = express()
+const cors = require('cors')
 
 
 app.use((req, res, next) => {
@@ -10,6 +11,7 @@ app.use((req, res, next) => {
 });
 
 app.use(bodyParser.json())
+app.use(cors())
 
 app.get('/test', (req, res)=>{
   res.json('come on')
