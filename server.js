@@ -43,9 +43,7 @@ app.post('/send-message', (req, res)=>{
       subject: 'PRODUCT REQUEST ✔', 
       text: 'Hello world?', 
       html: '<b>A client requested your product</b> <p>Wow, finally youve got a customer</p>' // html body
-  }).then(()=> res.json({
-    name: 'ashsall115@gmail.com'
-  })).catch((e)=>res.json('err', e))
+  }).then(()=> res.json('ashsall115@gmail.com')).catch((e)=>res.json('err', e))
 
   console.log('Message sent: %s', info.messageId,);
   console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
