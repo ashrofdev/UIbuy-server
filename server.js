@@ -11,12 +11,6 @@ app.use((req, res, next) => {
 });
 
 app.get('/', (req, res)=>{
-  request(
-    { url: 'https://ashrofdev.github.io/UIbuy/' },
-    (error, response, body) => {
-      if (error || response.statusCode === 500) {
-        return res.send('checking')
-      }
       res.send('It worked')
       // let transporter = nodemailer.createTransport({
       //   host: "smtp.gmail.com",
@@ -44,9 +38,8 @@ app.get('/', (req, res)=>{
       // console.log('Message sent: %s', info.messageId,);
       // console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
       
-    }
-  )
-  res.json('....')
+    
+  
     
 })
 
