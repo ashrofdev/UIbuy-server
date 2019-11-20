@@ -35,28 +35,22 @@ app.post('/send-message', (req, res)=>{
       rejectUnauthorized: false
     }
   });
-
-
+  
+  
   let info = transporter.sendMail({
       from: 'ashsal2001@gmail.com', 
       to: 'ashsall115@gmail.com', 
       subject: 'PRODUCT REQUEST ✔', 
       text: 'Hello world?', 
       html: '<b>A client requested your product</b> <p>Wow, finally youve got a customer</p>' // html body
-  }).then(()=> res.json('ashsall115@gmail.com')).catch((e)=>res.json('err', e))
-
+  })
+  
   console.log('Message sent: %s', info.messageId,);
   console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
-      
-})
-
-
-app.get('/', (req, res)=>{
-      
-      
-    
   
-    
 })
+
+
+    
 
 app.listen(process.env.PORT || 3005)
