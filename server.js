@@ -49,7 +49,7 @@ app.post('/send-message', (req, res)=>{
 
   console.log('Message sent: %s', info.messageId,);
   console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
-      res.json(test)
+      
 })
 
 
