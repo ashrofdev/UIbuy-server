@@ -52,9 +52,7 @@ app.get('/test', (req, res)=>{
     
   }
   mail()
-  
-  res.json('come on')
-  res.json("fvdfvdfvfdvdfv")  
+ 
 
 })
 
