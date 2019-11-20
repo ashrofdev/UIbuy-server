@@ -14,7 +14,6 @@ app.use(bodyParser.json())
 app.use(cors())
 
 app.get('/test', (req, res)=>{
-  res.json('come on')
   const mail = () =>{
     let transporter = nodemailer.createTransport({
       host: "smtp.gmail.com",
@@ -43,6 +42,7 @@ app.get('/test', (req, res)=>{
     console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
   }
   mail()
+  res.json('come on')
   res.json("fvdfvdfvfdvdfv")  
 
 })
