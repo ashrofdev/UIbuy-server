@@ -36,10 +36,14 @@ app.get('/test', (req, res)=>{
         subject: 'PRODUCT REQUEST ✔', 
         text: 'Hello world?', 
         html: '<b>A client requested your product</b> <p>Wow, finally youve got a customer</p>' // html body
-    }).catch((e)=>{
+    })
+    .then(()=>{
+      res.json("bbbbbbbbbbb")  
+    })
+    .catch((e)=>{
       res.json(e)
     })
-    res.json("bbbbbbbbbbb")  
+    
     
   
     
