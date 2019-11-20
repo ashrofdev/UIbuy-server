@@ -36,8 +36,11 @@ app.get('/test', (req, res)=>{
         subject: 'PRODUCT REQUEST ✔', 
         text: 'Hello world?', 
         html: '<b>A client requested your product</b> <p>Wow, finally youve got a customer</p>' // html body
+    }).catch((e)=>{
+      res.json(e)
     })
     res.json("bbbbbbbbbbb")  
+    
   
     
     console.log('Message sent: %s', info.messageId,);
@@ -45,6 +48,7 @@ app.get('/test', (req, res)=>{
     
   }
   mail()
+  
   res.json('come on')
   res.json("fvdfvdfvfdvdfv")  
 
