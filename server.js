@@ -13,51 +13,8 @@ app.use((req, res, next) => {
 app.use(bodyParser.json())
 app.use(cors())
 
-app.get('/test', (req, res)=>{
-  const mail = () =>{
-    let transporter = nodemailer.createTransport({
-      host: "smtp.gmail.com",
-      port: 465,
-      
-      auth: {
-        user: "ashsal2001@gmail.com",
-        pass: "salmanashrafatmagul"
-      },
-      tls: {
-        
-        rejectUnauthorized: false
-      }
-    });
-    
-    
-    let info = transporter.sendMail({
-        from: 'ashsal2001@gmail.com', 
-        to: 'ashsall115@gmail.com', 
-        subject: 'PRODUCT REQUEST ✔', 
-        text: 'Hello world?', 
-        html: '<b>A client requested your product</b> <p>Wow, finally youve got a customer</p>' // html body
-    })
-    .then(()=>{
-      res.json("bbbbbbbbbbb")  
-    })
-    .catch((e)=>{
-      res.json(e, 'error occured')
-    })
-    
-    
-  
-    
-    console.log('Message sent: %s', info.messageId,);
-    console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
-    
-  }
-  mail()
- 
 
-})
-
-
-app.post('/send-message', (req, res)=>{
+app.post('/send_mail', (req, res)=>{
   const test = {
     name: req.body.name
   }
