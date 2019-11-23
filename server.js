@@ -14,7 +14,7 @@ app.use(bodyParser.json())
 app.use(cors())
 
 
-app.post('/send_mail', (req, res)=>{
+app.get('/send_mail', (req, res)=>{
   const test = {
     name: req.body.name
   }
