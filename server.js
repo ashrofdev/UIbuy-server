@@ -21,10 +21,11 @@ app.get('/send_mail', (req, res)=>{
   let transporter = nodemailer.createTransport({
     host: "smtp.gmail.com",
     port: 465,
-    
+   
     auth: {
-      user: "ashsal2001@gmail.com",
-      pass: "salmanashrafatmagul"
+      type: 'OAuth2',
+      user: 'ashsal2001@gmail.com',
+      accessToken: 'salmanashrafatmagul'
     },
     tls: {
       
