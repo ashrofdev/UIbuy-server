@@ -23,9 +23,8 @@ app.get('/send_mail', (req, res)=>{
     port: 465,
    
     auth: {
-      type: 'OAuth2',
       user: 'ashsal2001@gmail.com',
-      accessToken: 'salmanashrafatmagul'
+      pass: 'salmanashrafatmagul'
     },
     tls: {
       
