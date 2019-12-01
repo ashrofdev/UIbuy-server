@@ -19,7 +19,7 @@ app.get('/send_mail', (req, res)=>{
     name: req.body.name
   }
   let transporter = nodemailer.createTransport({
-    host: "smtp.gmail.com",
+    host: "smtp.google.com",
     port: 465,
    
     auth: {
