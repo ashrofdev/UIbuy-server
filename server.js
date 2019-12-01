@@ -19,12 +19,14 @@ app.get('/send_mail', (req, res)=>{
     name: req.body.name
   }
   let transporter = nodemailer.createTransport({
-    host: "smtp.google.com",
+    host: "smtp.gmail.com",
     port: 465,
+    secure: true,
    
     auth: {
+      type: 'OAuth2',
       user: 'ashsal2001@gmail.com',
-      pass: 'salmanashrafatmagul'
+      accessToken: 'salmanashrafatmagul'
     },
     tls: {
       
