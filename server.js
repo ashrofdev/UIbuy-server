@@ -15,9 +15,7 @@ app.use(cors())
 
 
 app.get('/send_mail', (req, res)=>{
-  const test = {
-    name: req.body.name
-  }
+ 
   const transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
@@ -46,12 +44,6 @@ app.get('/send_mail', (req, res)=>{
     }
     });
 
-    cont.push({
-        name: req.body.name,
-        email: req.body.email,
-        message: req.body.message
-    })
-    console.log(cont)
   
 })
 
