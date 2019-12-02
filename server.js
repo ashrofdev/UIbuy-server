@@ -24,9 +24,8 @@ app.get('/send_mail', (req, res)=>{
     secure: true,
    
     auth: {
-      type: 'OAuth2',
       user: 'ashsal2001@gmail.com',
-      accessToken: 'salmanashrafatmagul'
+      pass: 'salmanashrafatmagul'
     },
     tls: {
       
