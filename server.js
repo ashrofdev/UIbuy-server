@@ -18,32 +18,40 @@ app.get('/send_mail', (req, res)=>{
   const test = {
     name: req.body.name
   }
-  let transporter = nodemailer.createTransport({
-    host: "smtp.gmail.com",
-    port: 465,
-    secure: true,
-   
+  const transporter = nodemailer.createTransport({
+    service: 'gmail',
     auth: {
-      user: 'ashsal2001@gmail.com',
-      pass: 'salmanashrafatmagul'
-    },
-    tls: {
-      
-      rejectUnauthorized: false
+        user: 'ashsal2001@gmail.com',
+        pass: 'salmanashrafatmagul'
     }
-  });
-  
-  
-  let info = transporter.sendMail({
-      from: 'ashsal2001@gmail.com', 
-      to: 'ashsall115@gmail.com', 
-      subject: 'PRODUCT REQUEST ✔', 
-      text: 'Hello world?', 
-      html: '<b>A client requested your product</b> <p>Wow, finally youve got a customer</p>' // html body
-  })
-  
-  console.log('Message sent: %s', info.messageId,);
-  console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
+    });
+
+    const mailOptions = {
+    from: 'ashsal2001@gmail.com',
+    to: 'ashsall115@gmail.com',
+    subject: 'Sending Email using Node.js',
+    text: 'WOW it actually worked!  from UI buy'
+    };
+
+    transporter.sendMail(mailOptions, function(error, info){
+    if (error) {
+        console.log(error);
+        res.json(error)
+    } else {
+        console.log('Email sent: ' + info.response);
+        res.json({
+            result: info.response,
+            k: test
+        })
+    }
+    });
+
+    cont.push({
+        name: req.body.name,
+        email: req.body.email,
+        message: req.body.message
+    })
+    console.log(cont)
   
 })
 
